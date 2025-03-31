@@ -1,0 +1,1219 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../CSaw%202024%20Qualifier%20writeups/">
+      
+      
+        <link rel="next" href="../Cyberthon%202024%20writeups/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.10">
+    
+    
+      
+        <title>Cddc 2024 qualifier writeups - obsidian-mkdocs template</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-purrfect-chat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="obsidian-mkdocs template" class="md-header__button md-logo" aria-label="obsidian-mkdocs template" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            obsidian-mkdocs template
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cddc 2024 qualifier writeups
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="obsidian-mkdocs template" class="md-nav__button md-logo" aria-label="obsidian-mkdocs template" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    obsidian-mkdocs template
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Achievements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Achievements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blogs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blogs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SDL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ctfs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Ctfs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blahaj%202024%20Quals%20%2B%20Finals%20writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blahaj 2024 Quals + Finals writeups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CSaw%202024%20Qualifier%20writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lost pyramid
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Cddc 2024 qualifier writeups
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cddc 2024 qualifier writeups
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-purrfect-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      A purrfect chat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traefik" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traefik
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crypto-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crypto 3?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Crypto 3?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsonplaceholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jsonplaceholder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cyberthon%202024%20writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    One Click 🤑 One Dollar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hack%20the%20vote%202024%20writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Poll vault
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hkctf%202024%20writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New free lunch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Iris%20ctf%202025%20Writeup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iris ctf 2025 Writeup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Platypwn%202024%20Writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Platypwn 2024 Writeups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sekai%20Ctf%202024%20writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sekai Ctf 2024 writeups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Whitehacks%202025%20Writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Travel back to a time gone by
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../YesbutNo%202024%20Qual%20Writeups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YesbutNo 2024 Qual Writeups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dated blogs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Dated blogs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dated%20blogs/03-02-2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    03 02 2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Assets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Assets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assets/TeXnically_Insecure_author_writeup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TeXnically Insecure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-purrfect-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      A purrfect chat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traefik" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traefik
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crypto-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crypto 3?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Crypto 3?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsonplaceholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jsonplaceholder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><strong>At the point of writing, I do not have access to the challenges so everything is based off memory and what I have. For future reference in case I forget my solutions when the challenges are re-opened</strong></p>
+<hr />
+<p>Web1</p>
+<h2 id="a-purrfect-chat">A purrfect chat<a class="headerlink" href="#a-purrfect-chat" title="Permanent link">&para;</a></h2>
+<p>We are given a website where we can input text to check if it matches the flag. Sending the input does not make any http requests, so we know the flag is checked locally.  Taking the bundled js file, we can see the last line seems to contain the compiled code. That line can be thrown into a js decompiler and beautifier, from which we have to manually reverse engineer the code.
+Also, renaming variables is really helpful for your sanity. 
+<div class="highlight"><pre><span></span><code><span class="nx">Q</span><span class="p">.</span><span class="nx">jsxs</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">Q</span><span class="p">.</span><span class="nx">jsx</span><span class="p">(</span><span class="nx">MaybeJsxCompontent</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="nx">var2</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">var1</span><span class="w"> </span><span class="p">}),</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">Q</span><span class="p">.</span><span class="nx">jsxs</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">            </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
+<span class="w">                </span><span class="nx">Q</span><span class="p">.</span><span class="nx">jsx</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">placeholder</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;flag&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">var1</span><span class="p">,</span><span class="w"> </span><span class="nx">onChange</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setVar1</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">}),</span><span class="w">  </span>
+<span class="w">                </span><span class="nx">Q</span><span class="p">.</span><span class="nx">jsx</span><span class="p">(</span><span class="s2">&quot;button&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;w-6&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">onClick</span><span class="o">:</span><span class="w"> </span><span class="nx">checkAns</span><span class="p">,</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="nx">Q</span><span class="p">.</span><span class="nx">jsx</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="nx">Np</span><span class="p">,</span><span class="w"> </span><span class="nx">alt</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;send&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">}),</span><span class="w">  </span>
+<span class="w">            </span><span class="p">],</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}),</span><span class="w">  </span>
+<span class="w">    </span><span class="p">],</span><span class="w">  </span>
+<span class="p">})</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">var1</span><span class="p">,</span><span class="w"> </span><span class="nx">setVar1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">He</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">),</span><span class="w">  </span>
+<span class="w">    </span><span class="p">[</span><span class="nx">var2</span><span class="p">,</span><span class="w"> </span><span class="nx">setVar2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">He</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">),</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">checkAns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">//  </span>
+<span class="w">        </span><span class="nx">var1</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">18</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">var1</span><span class="p">[</span><span class="mf">8</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;F&quot;</span><span class="cm">/*.charCodeAt() === parseInt(&quot;70&quot;)*/</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">var1</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="w"> </span><span class="cm">/*.charCodeAt() === 101*/</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">var1</span><span class="p">[</span><span class="mf">13</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">var1</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="cm">/*-11*/</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;ome&quot;</span><span class="cm">/*&quot;You are awesome!&quot;.substr(-4, 3)*/</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">var1</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">charCodeAt</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;W&quot;</span><span class="cm">/*parseInt(var1[8].charCodeAt()) + 17*/</span><span class="w">  </span>
+<span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="nx">setVar2</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// &lt;-- YOU WANT THIS  </span>
+<span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="nx">setVar2</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">};</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">Zi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// Prob some function to make a variable reactive?  </span>
+<span class="w">        </span><span class="p">(</span><span class="nx">yc</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">&quot;[DEPRECATED] Passing a vanilla store will be unsupported in a future version. Instead use `import { useStore } from &#39;zustand&#39;`.&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">bd</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">,</span><span class="w">  </span>
+<span class="w">            </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">xp</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">),</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">Zi</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Zi</span><span class="p">),</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">Cp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_p</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">18</span><span class="p">,</span><span class="w"> </span><span class="mf">176</span><span class="p">]</span><span class="w"> </span><span class="p">}));</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">MaybeJsxCompontent</span><span class="p">({</span><span class="w"> </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="nx">isaOorX</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">setText</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">He</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;Please input the answer&quot;</span><span class="p">),</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">18</span><span class="p">,</span><span class="w"> </span><span class="mf">176</span><span class="p">]</span><span class="cm">/*Cp((maybeArray) =&gt; maybeArray.items)*/</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">/</span><span class="err">\</span><span class="p">)</span><span class="nx">$</span><span class="o">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">test</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">test</span><span class="p">[</span><span class="mf">7</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="cm">/*l[4].toString()*/</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">test</span><span class="p">[</span><span class="mf">9</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="cm">/*.charCodeAt() === parseInt(100 + (l[7] % l[6]))*/</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">test</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">11</span><span class="p">,</span><span class="w"> </span><span class="mf">13</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;nt&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">test</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="cm">/*l[3] + &quot;&quot;*/</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">test</span><span class="p">[</span><span class="mf">15</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">test</span><span class="p">[</span><span class="mf">3</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;c&#39;</span><span class="cm">/*.charCodeAt() === 99*/</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">test</span><span class="p">[</span><span class="mf">14</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"> </span><span class="cm">/*.charCodeAt() === parseFloat(l[1] + l[2])*/</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">test</span><span class="p">[</span><span class="mf">10</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">He</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="nx">isaOorX</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">test</span><span class="p">[</span><span class="mf">16</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="cm">/*.charCodeAt() === 58*/</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">o</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">u</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">setText</span><span class="p">(</span><span class="s2">&quot;Correct!&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">isaOorX</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;x&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">setText</span><span class="p">(</span><span class="s2">&quot;Try again :(&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">isaOorX</span><span class="p">]),</span><span class="w">  </span>
+<span class="w">            </span><span class="nx">Q</span><span class="p">.</span><span class="nx">jsx</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="p">})</span><span class="w">  </span>
+<span class="w">    </span><span class="p">);</span><span class="w">  </span>
+<span class="p">}</span>
+</code></pre></div>
+Putting everything together, we get <code>"We1come2Fr0nt3nd:)"</code></p>
+<h2 id="traefik">Traefik<a class="headerlink" href="#traefik" title="Permanent link">&para;</a></h2>
+<p>This challenge has a simple basic auth protected web server.
+This challenge got a suspiciously high number of solves within the first day. I thought it had something to do with the docker/nginx configuration but eventually decided to use hydra to try cracking the password since we knew the username(The password is hashed though). </p>
+<h1 id="crypto-3">Crypto 3?<a class="headerlink" href="#crypto-3" title="Permanent link">&para;</a></h1>
+<p>We have a go file that seems to help us decrypt the aes encrypted text.
+Upon running, we see that the file has 64 bytes, 2 bytes away from being a multiple of the cipher blocksize
+The solution? Just bruteforce the 2 missing bytes. (Code was translated into kotlin by chatgpt)
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// Ugly, but does the job</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">encryptedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;6f7e9007dd0882f3f320a08690a230b84fcfa66b483dc4f4352123276622af4cc5c656bf0171c36271700f8f4f0f41d14d7c20baec601c70f670acc8b6037&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">ciphertext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hexStringToByteArray</span><span class="p">(</span><span class="n">encryptedData</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="n">repeat</span><span class="p">(</span><span class="m">256</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">byte1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">floorDiv</span><span class="p">(</span><span class="m">16</span><span class="p">).</span><span class="na">toByte</span><span class="p">()</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">byte2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">mod</span><span class="p">(</span><span class="m">16</span><span class="p">).</span><span class="na">toByte</span><span class="p">()</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">byte1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">byte2</span><span class="p">)</span><span class="w">  </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+
+<span class="p">}</span><span class="w">  </span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">hexStringToByteArray</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="n">ByteArray</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ByteArray</span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span>
+<span class="w">        </span><span class="p">((</span><span class="n">Character</span><span class="p">.</span><span class="na">digit</span><span class="p">(</span><span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">)</span><span class="w"> </span><span class="n">shl</span><span class="w"> </span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Character</span><span class="p">.</span><span class="na">digit</span><span class="p">(</span><span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">)).</span><span class="na">toByte</span><span class="p">()</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="kd">val</span><span class="w"> </span><span class="nv">keyString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;6eba99bf3fac4c92a857b05cff433a39&quot;</span><span class="w">  </span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hexStringToByteArray</span><span class="p">(</span><span class="n">keyString</span><span class="p">)</span><span class="w">  </span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">cipher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cipher</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;AES/CBC/NoPadding&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">blockSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cipher</span><span class="p">.</span><span class="na">blockSize</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">iv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ciphertext</span><span class="p">.</span><span class="na">sliceArray</span><span class="p">(</span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">blockSize</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">encryptedBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ciphertext</span><span class="p">.</span><span class="na">sliceArray</span><span class="p">(</span><span class="n">blockSize</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">ciphertext</span><span class="p">.</span><span class="na">size</span><span class="p">)</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">secretKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AES&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="n">cipher</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">Cipher</span><span class="p">.</span><span class="na">DECRYPT_MODE</span><span class="p">,</span><span class="w"> </span><span class="n">secretKey</span><span class="p">,</span><span class="w"> </span><span class="n">IvParameterSpec</span><span class="p">(</span><span class="n">iv</span><span class="p">))</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">decryptedBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cipher</span><span class="p">.</span><span class="na">doFinal</span><span class="p">(</span><span class="n">encryptedBytes</span><span class="p">)</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decryptedBytes</span><span class="p">.</span><span class="na">last</span><span class="p">().</span><span class="na">toInt</span><span class="p">()</span><span class="w">  </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">padding</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">padding</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">blockSize</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">decryptedBytes</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">padding</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">decryptedBytes</span><span class="p">.</span><span class="na">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">decryptedBytes</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">toInt</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">padding</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="n">decryptedBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decryptedBytes</span><span class="p">.</span><span class="na">sliceArray</span><span class="p">(</span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">decryptedBytes</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">padding</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">String</span><span class="p">(</span><span class="n">decryptedBytes</span><span class="p">)</span><span class="w">  </span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h2 id="jsonplaceholder">Jsonplaceholder<a class="headerlink" href="#jsonplaceholder" title="Permanent link">&para;</a></h2>
+<p>has the most overcomplicated solution. 10/10 would waste time on it again
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/get_flag&quot;</span><span class="p">)</span>  
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_flag</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>  
+    <span class="k">try</span><span class="p">:</span>  
+        <span class="n">ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;x-forwarded-for&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  
+        <span class="n">ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">host</span>  
+    <span class="k">if</span> <span class="n">ip</span> <span class="o">==</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">:</span>  
+        <span class="k">return</span> <span class="s2">&quot;FLAG&quot;</span>  
+    <span class="k">return</span> <span class="s2">&quot;NOT ALLOWED&quot;</span>
+</code></pre></div>
+This is the endpoint we aim to reach. Given the nginx config:
+<div class="highlight"><pre><span></span><code>...
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+...
+</code></pre></div>
+I had initially tried setting the X-Forwarded-For header from my own requests to <code>127.0.0.1</code> in hopes nginx would then append its own headers and give us <code>127.0.0.1, &lt;proxy ip&gt;</code> but nothing seemed to work.
+Next, the <code>a</code> endpoint:
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/jsonplaceholder&quot;</span><span class="p">)</span>  
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">jsonplaceholder</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>  
+    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>  
+        <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">get_restapi</span><span class="p">(</span><span class="n">item</span><span class="p">))</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_restapi</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>  
+    <span class="n">api</span> <span class="o">=</span> <span class="s2">&quot;https://jsonplaceholder.typicode.com&quot;</span>  
+
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^[0-9a-zA-Z./_\-?]*$&#39;</span><span class="p">)</span>  
+    <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">cmd</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">val</span><span class="si">}</span><span class="s2">&quot;</span>  
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pattern</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>  
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">api</span><span class="si">}</span><span class="s2">/posts/1&quot;</span>  
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">api</span><span class="si">}{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+If we could somehow get the server to request <code>127.0.0.1/get_flag</code> and return that, we could obtain the flag
+However, the <code>api</code> variable is prefixed in the url, making such calls impossible. In theory, a url like <code>&lt;api url&gt;@&lt;Our url&gt;/get_flag</code> could have worked, except the <code>@</code> character is sadly not allowed.  What if we had the <code>jsonplaceholder.typicode.com</code> as a subdomain? Perhaps from our own domain we could send a redirect to <code>127.0.0.1</code>. Thus, I obtained a domain from https://freedns.afraid.org/ and used https://redirect.pizza/ as the redirection service. Even then, the payload did not seem to work.
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.mooo.com/get_flag?&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">}</span>
+</code></pre></div>
+After hours of brain racking, a finally stumbled across <code>start.sh</code> which contained:
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+uvicorn<span class="w"> </span>main:app<span class="w"> </span>--host<span class="o">=</span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="o">=</span><span class="m">8000</span><span class="w"> </span>--reload
+</code></pre></div>
+Turns out, I had hadn't specified the port in the redirect. After all that, the payload finally returns <code>"CDDC24{Journ3ying_acr0ss_Hyrule}"</code>. </p>
+<blockquote>
+<p>Additional comments: I am glad <code>response.json()</code> on a single string hadn't failed. Otherwise, all of my plans would have be foiled. </p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
