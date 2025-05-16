@@ -3,9 +3,11 @@ Solves: New free lunch(Web), Webpage to pdf(1) (Web, assisted by guide), Mystiz'
 Score and hash are both generated client side, just modify it to a large number.
 Set debugger breakpoint before computing hash, set score in console
 # Void
+#langs/javascript
 Same trick, you can set a debug breakpoint and observe the payload being reconstructed from the whitespaces step by step. No extra steps as flag checker is not obfuscated
 ![[Pasted image 20241114161942.png]]
 # Webpage to pdf(1)
+#langs/python 
 > The writeup will be more of a step-by-step solution than an actual personal writeup
 
 This challenge has an unsafe function which allows arbitrary flags to be specified
@@ -50,6 +52,7 @@ Hence, we are able to pass cli flags through the `session_id`. Unfortunately, we
 Then, we send another request under the session id `--enable-local-file-access a.html`. The server first saves the html page with the mangled session id, then runs the command `wkhtmltopdf --enable-local-file-access a.html --enable-local-file-access a.pdf`, hence allowing the local file to be read this time. From there, we visit `a.pdf` to get the flag.
 > TODO: I tried using ngrok to host the files but it didn't work for some reason. I ended up  using https://jsbin.com, which was what the guide used.
 # Mystiz's Mini CTF(2)
+#langs/python
 Both 1 and 2 use the same source code.
 This challenge involves a website which imitates a ctf platform. Users can register, login, submit flags and view the scoreboard. As part 2 had more solves, I decided to try it first.
 In both parts, the flags were hidden within challenges on that platform, with the first flag being a challenge that was solved by a fake player and the second being hidden in the description of an unreleased challenge
@@ -184,6 +187,7 @@ There seems to be no validation of the form we submit, so what would happen if w
 ![[Pasted image 20241114173406.png]]
 `hkcert24{y0u_c4n_wr1t3_unsp3c1f13d_4t7r1bu73s_t0_th3_us3r_m0d3l}`
 # Mystiz's Mini CTF(2)
+#langs/python
 The first flag is harder. Flags for the challenges are all hashed 
 challenge.py:
 ```python

@@ -1,5 +1,6 @@
-Only managed to solve 1 ):
+Solves: Tagless(web)
 # Tagless
+#misc/admin-bot 
 This challenge was a web challenge involving flask. This was my first ctf where challenges needed to be launched and had a time limit, leading to some confusion when accessing the challenge instance. A good learning point from this was to always attempt to reproduce the challenge locally, if possible.
 This challenge had 3 important endpoints:
 `/`

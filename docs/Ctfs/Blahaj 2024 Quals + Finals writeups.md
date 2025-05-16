@@ -305,9 +305,9 @@ Thus, we can craft a payload that redirects to our website and extract the flag 
 `blahaj{D4nG13_tH3_MArKuP}`
 ## Blahaj fanpage
 Honestly, I did not find this challenge fun as it was quite guessy.
-TODO
+TODO: Tldr is brute forcing jwt secret with rockyou list.
 ## Data compressor
-TODO
+TODO: Tldr is RCE via pyyaml deserialize
 # Post ctf lessons
 Official solutions at https://github.com/blahajctf/blahajctf24-public
 ## Screenshooter
@@ -337,3 +337,5 @@ for i in payloads:
     print(resp.content)
 ```
 Code taken directly from the writeup above, full credits to them
+## Shikanoko
+TODO
