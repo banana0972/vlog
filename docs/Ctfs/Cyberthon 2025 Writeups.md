@@ -1,6 +1,6 @@
 Our team managed to get 10th place for this event :D
 Solves: Blog Bounty(osint), 🚩Flagtastic Fortune🚩(web), Ancient Atlas Archives(web), GPUPicker(web), Treasure Bank(web)
-# Blog bounty
+## Blog bounty
 > "Imano Trealperson is an up-and-coming CTF player. He even has a secret blog with a Cyberthon flag published in one of the articles. Can you find it? All i've heard is that he hosts a number of websites on his personal domain besides his blog."
 
 We are told about this "Imano Trealperson" person, so let's start cyberstalking him. A quick google/bing search will lead us to this site:
@@ -14,7 +14,7 @@ I had tried to see if there was a GitHub page hosted at his account (http://iman
 Visiting it and checking out the only [blog post](https://pwndiary.flaghunt.ing/blog/ctf-for-beginners), we are greeted with the flag
 ![[Pasted image 20250511120538.png]]
 `Cyberthon{W0W_Y0U_F0UND_MY_BL0G_4ND_FL4G_4M4Z1NG_J0B}`
-# 🚩Flagtastic Fortune🚩
+## 🚩Flagtastic Fortune🚩
 #langs/javascript 
 We are given a website where we need to fill up a form to claim the flag (supposedly)
 ![[Pasted image 20250511122842.png]]
@@ -46,7 +46,7 @@ It seems to check if some hashes match before sending a request to `/api/claim-f
 Giving it to the API, we are greeted by the flag
 ![[Pasted image 20250511123920.png]]
 `Cyberthon{fr33_fl4g_g1v34w4y_sc4m_s1t3_1s_4_sc4m}`
-# Ancient Atlas Archives
+## Ancient Atlas Archives
 We have a page where we can view a bunch of posts (locations?)
 ![[Pasted image 20250511124133.png]]
 Clicking a random post, we see each post seems to have a numerical id,
@@ -57,7 +57,7 @@ What if we just incremented the number?
 ![[Pasted image 20250511124340.png]]
 Oh lol there's the flag.
 `Cyberthon{F1ND1NG_4_FL4G_1N_TH3_L05T_C1TY_0F_G0LD}`
-# GPUPicker
+## GPUPicker
 #langs/sql 
 We are given a catalogue where we can find specific GPUs.
 ![[Pasted image 20250512123507.png]]
@@ -128,7 +128,7 @@ As it turns out, when 0 sanitization or processing is being done on your payload
 sqlmap -a --url="http://chals.f.cyberthon25.ctf.sg:50131/api/gpus?sort_by=boost_clock&sort_order=asc&page=1&per_page=9" --risk=3 --level=5 --threads=5
 ```
 ![[Pasted image 20250512140142.png]]
-# Treasure bank
+## Treasure bank
 #langs/python 
 We have a bank simulator app where our goal is to obtain an impossibly large amount of money to claim the flag. Reviewing the source, code we see the docker compose file contains 2 services to be run:
 ```yml

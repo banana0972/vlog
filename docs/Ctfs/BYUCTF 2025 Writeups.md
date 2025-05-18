@@ -70,7 +70,7 @@ This means we could fetch `admin_password` as a quote to steal the admin passwor
 With that, we can get the flag
 ![[Pasted image 20250518113745.png]]
 `byuctf{al1w4ys_s2n1tize_1nput-5ed1s_eik4oc85nxz}`
-# Willy Wonka Web
+## Willy Wonka Web
 #langs/javascript 
 #libs/apache
 We are given a simple flag server proxied behind apache. It seems all we need to do is set the `a: admin` header
@@ -132,7 +132,7 @@ With a little modification of adding an extra `\r\n` at the end of our request, 
 
 ![[Pasted image 20250518121937.png]]
 `byuctf{i_never_liked_w1lly_wonka}`
-# Cooking flask
+## Cooking flask
 #langs/python, #langs/sql/sqlite
 We are given a recipe querying website where we can search for recipes by name or by tags.
 ![[Pasted image 20250518124505.png]]
