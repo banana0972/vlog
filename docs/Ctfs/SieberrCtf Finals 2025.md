@@ -150,7 +150,7 @@ While checking code, I realised that given the ability to copy the file from one
 ![[firefox_z0aVk1bCNg.mp4]]
 Just like that, we are able to get the flag from the server.
 `sctf{r4c1ng_1nt0_th3_n1ght}`
-# EasyXSSChallenge
+## EasyXSSChallenge
 #langs/python 
 #misc/admin-bot 
 As hinted by the challenge name, this is an XSS challenge involving stealing the flag cookie from the admin bot. Given that we know the exploit is most likely XSS of some form, let's see where user input is reflected. What stands out most is the `/serve/<filename>` path:
